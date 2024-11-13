@@ -19,8 +19,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    docker.image("python-docker").run('-p 5000:5000') 
-                    sh '. /app/venv/bin/activate && pytest /app/tests/'
+                    def appContainer  = docker.image("python-docker").run('-p 5000:5000') 
+                    sh 'docker exec ${appContainer.id} . /app/venv/bin/activate && pytest /app/tests/'
                     }
                 }
             }
