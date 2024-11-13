@@ -3,6 +3,8 @@ FROM python:3.13-slim
 WORKDIR /app
 
 RUN python -m venv venv
+RUN chmod +x /app/venv/bin/activate
+
 ENV PATH="/app/venv/bin:$PATH"
 
 COPY requirements.txt requirements.txt
