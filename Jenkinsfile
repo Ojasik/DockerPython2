@@ -16,15 +16,15 @@ pipeline {
             }
         }
 
-        // stage('Run Tests') {
-        //     steps {
-        //         script {
-        //             docker.image("python-docker").withRun('-p 5000:5000') { c ->
-        //             sh 'ls -l /app/venv/bin/activate'
-        //                 sh 'bash -c "source /app/venv/bin/activate && pytest /app/tests/"'
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Run Tests') {
+            steps {
+                script {
+                    docker.image("python-docker").withRun('-p 5000:5000') { c ->
+                        sh 'pwd'
+                        sh 'bash -c "source /app/venv/bin/activate && pytest /app/tests/"'
+                    }
+                }
+            }
+        }
     }
 }
