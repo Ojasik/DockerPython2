@@ -16,22 +16,11 @@ pipeline {
             }
         }
 
-        stage('Check Pytest Installation') {
-    steps {
-        script {
-            docker.image("python-docker").inside {
-                sh 'pip show pytest'
-            }
-        }
-    }
-}
-
-
         stage('Run Tests') {
             steps {
                 script {
                     docker.image("python-docker").withRun('-p 5000:5000') { c ->
-                        sh '/app/venv/bin/pytest /app/tests/'
+                        sh 'source /app/venv/bin/activate && pytest /app/tests/'
                     }
                 }
             }
