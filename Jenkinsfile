@@ -20,7 +20,6 @@ pipeline {
             steps {
                 script {
                     docker.image("python-docker").withRun('-p 5000:5000') { c ->
-                        sh 'pip install requests'
                         sh 'pytest tests/'
 
                     }
