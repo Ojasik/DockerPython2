@@ -21,7 +21,6 @@ pipeline {
                 script {
                     docker.image("python-docker").withRun('-p 5000:5000') { c ->
                         sh 'pytest tests/'
-
                     }
                 }
             }
