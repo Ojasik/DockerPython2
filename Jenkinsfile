@@ -20,7 +20,8 @@ pipeline {
             steps {
                 script {
                     docker.image("python-docker").withRun('-p 5000:5000') { c ->
-                        sh 'cd /app && bash -c "source /app/venv/bin/activate && pytest /app/tests/"'
+                    sh 'ls -l /app/venv/bin/activate'
+                        sh 'bash -c "source /app/venv/bin/activate && pytest /app/tests/"'
                     }
                 }
             }
