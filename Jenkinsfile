@@ -20,8 +20,6 @@ pipeline {
             steps {
                 script {
                     docker.image("python-docker").inside('-p 5000:5000') { c ->
-                    // sh 'nohup python /app/app.py &'
-                        sh 'sleep 5'
                         sh '. /app/venv/bin/activate && pytest /app/tests/'
                     }
                 }
