@@ -16,6 +16,17 @@ pipeline {
             }
         }
 
+        stage('Check Pytest Installation') {
+    steps {
+        script {
+            docker.image("python-docker").inside {
+                sh 'pip show pytest'
+            }
+        }
+    }
+}
+
+
         stage('Run Tests') {
             steps {
                 script {
