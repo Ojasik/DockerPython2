@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Ojasik/DockerPython2.git'
+                git branch: 'main', url: 'https://github.com/Ojasik/DockerPython2.git'
             }
         }
 
